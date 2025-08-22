@@ -1,88 +1,137 @@
-// Config
-const PASSWORD = "integrity";
+// MadWerx Portfolio interactions
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click', e=>{
-    const id = a.getAttribute('href');
-    const el = document.querySelector(id);
-    if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+// Password gating for "Read more" -> forwards to nanoresonance.org if correct
+const PASSWORD = 'integrity';
+let pendingCompany = null;
+
+function openPwdModal(company){
+  pendingCompany = company;
+  const modal = document.getElementById('pwd-modal');
+  const input = document.getElementById('pwd-input');
+  const error = document.getElementById('pwd-error');
+  if (!modal) return;
+  error.textContent = '';
+  modal.showModal();
+  setTimeout(()=>input.focus(), 50);
+}
+
+function handleUnlock(action){
+  const modal = document.getElementById('pwd-modal');
+  const input = document.getElementById('pwd-input');
+  const error = document.getElementById('pwd-error');
+  if (action !== 'confirm') { modal.close(); return; }
+  const val = (input.value || '').trim();
+  if (val.toLowerCase() === PASSWORD){
+    window.open('https://www.nanoresonance.org', '_blank', 'noopener');
+    modal.close();
+    input.value='';
+  } else {
+    error.textContent = 'Incorrect password.';
+    // small shake
+    modal.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-6px)' }, { transform: 'translateX(6px)' }, { transform: 'translateX(0)' }], { duration: 250 });
+    input.select();
+  }
+}
+
+document.querySelectorAll('.readmore').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const company = e.currentTarget.getAttribute('data-company');
+    openPwdModal(company);
   });
 });
 
-// Year in footer
-document.getElementById('year').textContent = new Date().getFullYear();
+const pwdForm = document.getElementById('pwd-form');
+if (pwdForm){
+  pwdForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    handleUnlock('confirm');
+  });
+}
+document.getElementById('pwd-modal')?.addEventListener('close', () => {
+  document.getElementById('pwd-input').value = '';
+  document.getElementById('pwd-error').textContent = '';
+});
 
-// Cursor glow
-(function(){
-  const glow = document.getElementById('cursor-glow');
-  const move = (e)=>{
-    glow.style.left = e.clientX + 'px';
-    glow.style.top = e.clientY + 'px';
-  };
-  window.addEventListener('mousemove', move, {passive:true});
-})();
+// Hover support on touch: tap to toggle reveal
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('touchstart', () => {
+    card.classList.toggle('touch-reveal');
+  });
+});
 
-// Starfield background (original)
-(function(){
-  const c = document.getElementById('bg-stars');
-  const ctx = c.getContext('2d');
-  let w,h,dpr,stars;
-
+// Animated cosmic resonance background (lightweight particle field)
+(function cosmicBackground(){
+  const canvas = document.getElementById('cosmic-bg');
+  const ctx = canvas.getContext('2d');
+  let w, h, dpr;
+  const particles = [];
+  const max = 90; // particle count
   function resize(){
-    dpr = Math.max(1, Math.min(2, window.devicePixelRatio||1));
-    w = c.width = Math.floor(innerWidth*dpr);
-    h = c.height = Math.floor(innerHeight*dpr);
-    c.style.width = innerWidth + 'px';
-    c.style.height = innerHeight + 'px';
-    stars = Array.from({length:180}, ()=>({
+    dpr = window.devicePixelRatio || 1;
+    w = canvas.width = Math.round(innerWidth * dpr);
+    h = canvas.height = Math.round(innerHeight * dpr);
+  }
+  window.addEventListener('resize', resize, { passive:true });
+  resize();
+  function spawn(){
+    return {
       x: Math.random()*w,
       y: Math.random()*h,
-      r: Math.random()*1.4 + .3,
-      v: Math.random()*0.15 + 0.05
-    }));
+      vx: (Math.random()-.5)*0.05*dpr,
+      vy: (Math.random()-.5)*0.05*dpr,
+      r: (Math.random()*1.2 + .6) * dpr,
+      a: Math.random()*Math.PI*2
+    };
   }
-  window.addEventListener('resize', resize); resize();
-
+  for (let i=0;i<max;i++) particles.push(spawn());
   function step(){
     ctx.clearRect(0,0,w,h);
-    // soft haze
-    const g = ctx.createRadialGradient(w*0.7,h*0.3,40,w*0.7,h*0.3,Math.max(w,h)*0.7);
-    g.addColorStop(0,'rgba(120,210,255,0.10)');
-    g.addColorStop(1,'rgba(0,0,0,0)');
-    ctx.fillStyle = g; ctx.fillRect(0,0,w,h);
+    // subtle vignette
+    const grad = ctx.createRadialGradient(w*0.5,h*0.5,0,w*0.5,h*0.5,Math.max(w,h)*0.6);
+    grad.addColorStop(0,'rgba(12,20,36,0.15)');
+    grad.addColorStop(1,'rgba(5,7,11,0.0)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0,0,w,h);
 
-    // stars
-    for(const s of stars){
-      s.y += s.v;
-      if(s.y > h) { s.y = -5; s.x = Math.random()*w; }
+    // draw particles
+    for (let i=0;i<particles.length;i++){
+      const p = particles[i];
+      p.x += p.vx; p.y += p.vy;
+      p.a += 0.003;
+      // resonance shimmer
+      const pulse = 0.7 + Math.sin(p.a)*0.3;
       ctx.beginPath();
-      ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-      ctx.fillStyle = 'rgba(150,210,255,0.9)';
+      ctx.arc(p.x, p.y, p.r*pulse, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(191,217,255,0.8)';
+      ctx.shadowBlur = 8; ctx.shadowColor = 'rgba(127,180,255,0.6)';
       ctx.fill();
+
+      // bounds wrap
+      if (p.x<0) p.x = w; if (p.x>w) p.x=0;
+      if (p.y<0) p.y = h; if (p.y>h) p.y=0;
     }
+    // draw subtle connective lines (resonance) for nearby particles
+    for (let i=0;i<particles.length;i++){
+      for (let j=i+1;j<particles.length;j++){
+        const a = particles[i], b = particles[j];
+        const dx = a.x-b.x, dy=a.y-b.y;
+        const dist = Math.hypot(dx,dy);
+        if (dist < 90*dpr){
+          const alpha = (1 - dist/(90*dpr)) * 0.12;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(122,166,255,${alpha.toFixed(3)})`;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+    }
+
     requestAnimationFrame(step);
   }
   step();
 })();
-
-// Password gate for external links
-document.querySelectorAll('.ext-link').forEach(link=>{
-  link.addEventListener('click', (e)=>{
-    const entered = prompt('Enter access password:');
-    if(!entered || entered.trim().toLowerCase() !== PASSWORD){
-      e.preventDefault();
-      alert('Incorrect password.');
-    }
-  });
-});
-
-// Contact form mock
-document.getElementById('contact-form').addEventListener('submit', async (e)=>{
-  e.preventDefault();
-  const status = document.getElementById('form-status');
-  status.textContent = 'Sending…';
-  await new Promise(r=>setTimeout(r, 700));
-  status.textContent = 'Thank you — we will get back to you shortly.';
-  e.target.reset();
-});

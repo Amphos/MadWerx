@@ -1,173 +1,229 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MadWerx — Portfolio of Companies</title>
-  <meta name="description" content="MadWerx represents a portfolio of companies delivering world-leading technologies for a coherent future." />
-  <!-- Elegant serif for headings + modern sans for body -->
+  <title>MadWerx — Portfolio</title>
+  <meta name="description" content="MadWerx portfolio — World‑Leading Technologies for a Coherent Future." />
+  <meta property="og:title" content="MadWerx — Portfolio" />
+  <meta property="og:description" content="World‑Leading Technologies for a Coherent Future." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/logo-madwerx.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Animated background -->
-  <canvas id="bg-cosmos" aria-hidden="true"></canvas>
-  <div class="bg-bands" aria-hidden="true"></div>
-  <div id="cursor-glow" aria-hidden="true"></div>
-
-  <header class="site-header">
-    <a href="#top" class="brand">
-      <img class="brand-logo" src="assets/logo-madwerx.png" alt="MadWerx logo" onerror="this.src='assets/placeholder-logo.svg';" />
-      <span>MadWerx</span>
+  <!-- Cosmic resonance animated background -->
+  <canvas id="cosmic-bg" aria-hidden="true"></canvas>
+  <div id="bg-gradient" aria-hidden="true"></div>
+  
+  <header class="site-header container">
+    <a class="brand" href="#" aria-label="MadWerx Home">
+      <img src="assets/logo-madwerx.png" alt="MadWerx logo" class="brand-logo" />
+      <span class="brand-name">MadWerx</span>
     </a>
-    <nav class="nav">
-      <a href="#about">About</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact" class="button ghost">Contact</a>
+    <nav class="main-nav">
+      <a href="#portfolio">Companies</a>
+      <a href="#thesis">Thesis</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <main id="top">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-inner">
-        <img class="hero-logo" src="assets/logo-madwerx.png" alt="MadWerx" onerror="this.src='assets/placeholder-logo.svg';">
-        <h1 class="title"><span class="accent">World-Leading</span> Technologies for a Coherent Future</h1>
-        <p class="subtitle">We steward a portfolio of outstanding companies across clean energy, advanced materials, finance, and resilient infrastructure.</p>
-        <div class="cta">
-          <a href="#portfolio" class="button primary">Explore Portfolio</a>
-          <a href="#contact" class="button ghost">Get in touch</a>
-        </div>
+  <main>
+    <section class="hero container">
+      <h1>World‑Leading Technologies for a Coherent Future</h1>
+      <p class="lede">
+        We build, acquire, and scale resonance‑driven technologies with measurable climate and industry impact.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#portfolio">Explore Companies</a>
+        <a class="btn btn-ghost" href="#thesis">Investment Thesis</a>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="container">
-        <h2>About MadWerx</h2>
-        <p>MadWerx represents and integrates leading technologies from specialized partners. We connect engineering excellence with commercialization, regulatory pathways, and deployment at scale.</p>
+    <section id="signals" class="signals container" aria-label="Investor signals">
+      <div class="signal">
+        <h3>Thesis</h3>
+        <p>Resonance physics → practical systems in energy, materials, water, and industrial efficiency.</p>
+      </div>
+      <div class="signal">
+        <h3>Stage</h3>
+        <p>Seed to growth. We co‑develop IP and deploy at industrial scale with verified outcomes.</p>
+      </div>
+      <div class="signal">
+        <h3>Focus</h3>
+        <p>Hardware + software stacks, validated MRV, and durable unit economics.</p>
+      </div>
+      <div class="signal">
+        <h3>Geography</h3>
+        <p>EU‑led with global operations and partners.</p>
       </div>
     </section>
 
-    <!-- PORTFOLIO -->
-    <section id="portfolio" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>Portfolio of Companies</h2>
-          <p class="muted">Minimal cards (logo + name). Reveal description elegantly on hover or focus.</p>
-        </div>
+    <section id="portfolio" class="portfolio container" aria-labelledby="portfolio-title">
+      <h2 id="portfolio-title">Portfolio Companies</h2>
+      <div class="grid">
+        <!-- MadWerx (featured) -->
+        <article class="card featured" data-company="MadWerx">
+          <div class="card-media">
+            <img src="assets/logo-madwerx.png" alt="MadWerx" />
+          </div>
+          <div class="card-body">
+            <h3>MadWerx</h3>
+            <p class="muted">World‑Leading Technologies for a Coherent Future.</p>
+          </div>
+          <div class="hover-reveal">
+            <p>We orchestrate a portfolio of resonance‑based platforms spanning energy, materials, water, and digital markets.</p>
+            <button class="btn btn-link readmore" data-company="MadWerx">Read more →</button>
+          </div>
+        </article>
 
-        <div class="grid">
-          <!-- Carbon Trading -->
-          <article class="card" tabindex="0">
-            <div class="card-face">
-              <img src="assets/logo-carbon.png" alt="Carbon Trading Platform" onerror="this.src='assets/placeholder-badge.svg';" />
-              <h3>Carbon Trading Platform</h3>
-            </div>
-            <div class="card-details">
-              <p>Blockchain-based marketplace with transparent, immutable tracking of environmental assets and trade-offs; audit-ready MRV and settlement.</p>
-              <a class="pill ext-link" href="https://example.com/carbon-trading" target="_blank" rel="noopener">Visit Site</a>
-            </div>
-          </article>
+        <!-- Carbon Trading Platform -->
+        <article class="card" data-company="Carbon Trading Platform">
+          <div class="card-media">
+            <img src="assets/logo-carbon.png" alt="Carbon Trading Platform" />
+          </div>
+          <div class="card-body">
+            <h3>Carbon Trading Platform</h3>
+            <p class="muted">Blockchain‑based environmental markets.</p>
+          </div>
+          <div class="hover-reveal">
+            <p>Blockchain‑based marketplace with transparent, immutable tracking of environmental assets and trade‑offs…</p>
+            <button class="btn btn-link readmore" data-company="Carbon Trading Platform">Read more →</button>
+          </div>
+        </article>
 
-          <!-- MagLev -->
-          <article class="card" tabindex="0">
-            <div class="card-face">
-              <img src="assets/logo-maglev.png" alt="MagLev Power Pylon" onerror="this.src='assets/placeholder-badge.svg';" />
-              <h3>MagLev Power Pylon</h3>
-            </div>
-            <div class="card-details">
-              <p>Electromagnetic & kinematics-driven vertical-axis turbine delivering continuous <strong>2.4 MW</strong> output; marine-grade biopolymer composites.</p>
-              <a class="pill ext-link" href="https://example.com/maglev-pylon" target="_blank" rel="noopener">Visit Site</a>
-            </div>
-          </article>
+        <!-- MagLev Power Pylon -->
+        <article class="card" data-company="MagLev Power Pylon">
+          <div class="card-media">
+            <img src="assets/logo-maglev.png" alt="MagLev Power Pylon" />
+          </div>
+          <div class="card-body">
+            <h3>MagLev Power Pylon</h3>
+            <p class="muted">Vertical‑axis turbine, electromagnetic &amp; kinematic.</p>
+          </div>
+          <div class="hover-reveal">
+            <p>Electromagnetic &amp; kinematics‑driven vertical‑axis turbine delivering continuous 2.4&nbsp;MW… biopolymer composite with &gt;40 years proven performance…</p>
+            <button class="btn btn-link readmore" data-company="MagLev Power Pylon">Read more →</button>
+          </div>
+        </article>
 
-          <!-- Monetization -->
-          <article class="card" tabindex="0">
-            <div class="card-face">
-              <img src="assets/logo-monetization.png" alt="Monetization Platform" onerror="this.src='assets/placeholder-badge.svg';" />
-              <h3>Monetization Platform</h3>
-            </div>
-            <div class="card-details">
-              <p>Digital-asset execution with advanced algorithms, risk controls, and real-time analytics for compliant participation.</p>
-              <a class="pill ext-link" href="https://example.com/monetization" target="_blank" rel="noopener">Visit Site</a>
-            </div>
-          </article>
+        <!-- Monetization Platform -->
+        <article class="card" data-company="Monetization Platform">
+          <div class="card-media">
+            <img src="assets/logo-monetization.png" alt="Monetization Platform" />
+          </div>
+          <div class="card-body">
+            <h3>Monetization Platform</h3>
+            <p class="muted">Digital‑asset trading &amp; execution.</p>
+          </div>
+          <div class="hover-reveal">
+            <p>Digital‑asset trading with advanced execution algorithms…</p>
+            <button class="btn btn-link readmore" data-company="Monetization Platform">Read more →</button>
+          </div>
+        </article>
 
-          <!-- Atomic Resonance -->
-          <article class="card" tabindex="0">
-            <div class="card-face">
-              <img src="assets/logo-atomic-resonance.png" alt="Atomic Resonance" onerror="this.src='assets/placeholder-badge.svg';" />
-              <h3>Atomic Resonance</h3>
-            </div>
-            <div class="card-details">
-              <p>Next-generation, energy-efficient, and environmentally considerate mining technologies leveraging resonance-based methods.</p>
-              <a class="pill ext-link" href="https://example.com/atomic-resonance" target="_blank" rel="noopener">Visit Site</a>
-            </div>
-          </article>
+        <!-- Atomic Resonance -->
+        <article class="card" data-company="Atomic Resonance">
+          <div class="card-media">
+            <img src="assets/logo-atomic-resonance.png" alt="Atomic Resonance" />
+          </div>
+          <div class="card-body">
+            <h3>Atomic Resonance</h3>
+            <p class="muted">Resonance‑based clean extraction.</p>
+          </div>
+          <div class="hover-reveal">
+            <p>Next‑generation, energy‑efficient, and environmentally friendly mining technologies leveraging resonance‑based methods.</p>
+            <button class="btn btn-link readmore" data-company="Atomic Resonance">Read more →</button>
+          </div>
+        </article>
 
-          <!-- Graphene -->
-          <article class="card" tabindex="0">
-            <div class="card-face">
-              <img src="assets/logo-graphene.png" alt="Graphene" onerror="this.src='assets/placeholder-badge.svg';" />
-              <h3>Graphene</h3>
-            </div>
-            <div class="card-details">
-              <p>High-precision, durable graphene production with tight process control for industrial-grade performance.</p>
-              <a class="pill ext-link" href="https://example.com/graphene" target="_blank" rel="noopener">Visit Site</a>
-            </div>
-          </article>
+        <!-- Graphene -->
+        <article class="card" data-company="Graphene">
+          <div class="card-media">
+            <img src="assets/logo-graphene.png" alt="Graphene" />
+          </div>
+          <div class="card-body">
+            <h3>Graphene</h3>
+            <p class="muted">Industrial‑grade graphene systems.</p>
+          </div>
+          <div class="hover-reveal">
+            <p>High‑precision, durable graphene production…</p>
+            <button class="btn btn-link readmore" data-company="Graphene">Read more →</button>
+          </div>
+        </article>
 
-          <!-- Dynamic Resonance -->
-          <article class="card" tabindex="0">
-            <div class="card-face">
-              <img src="assets/logo-dynamic-resonance.png" alt="Dynamic Resonance" onerror="this.src='assets/placeholder-badge.svg';" />
-              <h3>Dynamic Resonance</h3>
-            </div>
-            <div class="card-details">
-              <p>Advanced biopolymer composites for marine systems, oil & gas transmission lines, and electromagnetic pipeline turbines.</p>
-              <a class="pill ext-link" href="https://example.com/dynamic-resonance" target="_blank" rel="noopener">Visit Site</a>
-            </div>
-          </article>
+        <!-- Dynamic Resonance -->
+        <article class="card" data-company="Dynamic Resonance">
+          <div class="card-media">
+            <img src="assets/logo-dynamic-resonance.png" alt="Dynamic Resonance" />
+          </div>
+          <div class="card-body">
+            <h3>Dynamic Resonance</h3>
+            <p class="muted">Advanced biopolymer composites.</p>
+          </div>
+          <div class="hover-reveal">
+            <p>Advanced biopolymer composites for marine systems, oil &amp; gas transmission lines, and electromagnetic pipeline turbines.</p>
+            <button class="btn btn-link readmore" data-company="Dynamic Resonance">Read more →</button>
+          </div>
+        </article>
 
-          <!-- Eco & Off-Grid -->
-          <article class="card" tabindex="0">
-            <div class="card-face">
-              <img src="assets/logo-eco-offgrid.png" alt="Eco & Off-Grid Infrastructure" onerror="this.src='assets/placeholder-badge.svg';" />
-              <h3>Eco &amp; Off-Grid Infrastructure</h3>
-            </div>
-            <div class="card-details">
-              <p>Non-chemical water treatment, sustainable energy production & storage, biopolymer composites for construction.</p>
-              <a class="pill ext-link" href="https://example.com/eco-offgrid" target="_blank" rel="noopener">Visit Site</a>
-            </div>
-          </article>
-        </div>
+        <!-- Eco & Off-Grid Infrastructure -->
+        <article class="card" data-company="Eco & Off-Grid Infrastructure">
+          <div class="card-media">
+            <img src="assets/logo-eco-offgrid.png" alt="Eco & Off-Grid Infrastructure" />
+          </div>
+          <div class="card-body">
+            <h3>Eco &amp; Off‑Grid Infrastructure</h3>
+            <p class="muted">Water, energy, storage, materials.</p>
+          </div>
+          <div class="hover-reveal">
+            <p>Non‑chemical water treatment… energy production &amp; storage… biopolymer composites for construction.</p>
+            <button class="btn btn-link readmore" data-company="Eco & Off-Grid Infrastructure">Read more →</button>
+          </div>
+        </article>
       </div>
+      <p class="disclaimer">All company links are currently routed to an external overview while individual pages are under password protection.</p>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section contact">
-      <div class="container">
-        <h2>Contact</h2>
-        <form id="contact-form" class="form">
-          <label><span>Name</span><input type="text" name="name" required placeholder="Your name" /></label>
-          <label><span>Email</span><input type="email" name="email" required placeholder="you@company.com" /></label>
-          <label class="full"><span>Message</span><textarea name="message" rows="5" required placeholder="How can we collaborate?"></textarea></label>
-          <button type="submit" class="button primary">Send</button>
-          <p id="form-status" role="status" aria-live="polite"></p>
-        </form>
+    <section id="thesis" class="thesis container">
+      <h2>Investment Thesis</h2>
+      <ul class="checks">
+        <li>Resonance‑centric IP with measurable physical outputs and verifiable MRV.</li>
+        <li>Industrial‑grade materials and energy systems with defensible unit economics.</li>
+        <li>Digital marketplaces that close the loop from measurement → monetization.</li>
+        <li>EU roots, global deployment, strict compliance and governance.</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="contact container">
+      <div class="contact-card">
+        <h2>Connect</h2>
+        <p>Interested in partnering or investing? We’d love to share more under NDA.</p>
+        <a class="btn btn-primary" href="https://www.nanoresonance.org" target="_blank" rel="noopener">Contact →</a>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="year"></span> MadWerx. All rights reserved.</p>
-      <a href="#top" class="to-top">Back to top ↑</a>
-    </div>
+  <footer class="site-footer container">
+    <p>© <span id="year"></span> MadWerx. All rights reserved.</p>
   </footer>
+
+  <!-- Password modal -->
+  <dialog id="pwd-modal">
+    <form method="dialog" class="modal-card" id="pwd-form">
+      <h3>Enter access password</h3>
+      <p class="muted small">“Read more” is protected while we finalize materials.</p>
+      <input type="password" id="pwd-input" placeholder="Password" autocomplete="current-password" required />
+      <div class="modal-actions">
+        <button class="btn btn-ghost" value="cancel">Cancel</button>
+        <button class="btn btn-primary" value="confirm">Unlock</button>
+      </div>
+      <p id="pwd-error" class="error" role="alert" aria-live="polite"></p>
+    </form>
+  </dialog>
 
   <script src="script.js"></script>
 </body>
