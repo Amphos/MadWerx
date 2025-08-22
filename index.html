@@ -3,49 +3,147 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MadWerx — World‑Leading Technologies for a Coherent Future</title>
+  <title>MadWerx — Portfolio of Companies</title>
   <meta name="description" content="MadWerx represents a portfolio of companies delivering world‑leading technologies for a coherent future." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Elegant + modern fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <canvas id="energy-particles" aria-hidden="true"></canvas>
+  <!-- Animated background -->
+  <canvas id="bg-stars" aria-hidden="true"></canvas>
+  <div class="bg-waves" aria-hidden="true"></div>
+  <div id="cursor-glow" aria-hidden="true"></div>
 
   <header class="site-header">
     <a href="#top" class="brand">
-      <img src="assets/logo-madwerx.png" alt="MadWerx logo" class="large-logo"/>
+      <img class="brand-logo" src="assets/logo-madwerx.png" alt="MadWerx logo" onerror="this.src='assets/placeholder-logo.svg';" />
       <span>MadWerx</span>
     </a>
     <nav class="nav">
       <a href="#about">About</a>
       <a href="#portfolio">Portfolio</a>
-      <a href="#contact" class="button glow">Contact</a>
+      <a href="#contact" class="button ghost">Contact</a>
     </nav>
   </header>
 
   <main id="top">
-    <section class="hero parallax">
+    <!-- HERO -->
+    <section class="hero">
       <div class="hero-inner">
-        <h1 class="title">World‑Leading Technologies<br><span class="accent">for a Coherent Future</span></h1>
-        <p class="subtitle">MadWerx is a steward and representative for a portfolio of companies delivering breakthrough, market‑ready solutions across energy, materials, finance, and infrastructure.</p>
+        <img class="hero-logo" src="assets/logo-madwerx.png" alt="MadWerx" onerror="this.src='assets/placeholder-logo.svg';">
+        <h1 class="title"><span class="accent">World‑Leading</span> Technologies for a Coherent Future</h1>
+        <p class="subtitle">We steward a portfolio of outstanding companies across clean energy, advanced materials, finance, and resilient infrastructure.</p>
         <div class="cta">
-          <a href="#portfolio" class="button glow">Explore Portfolio</a>
-          <a href="#contact" class="button outline">Get in Touch</a>
+          <a href="#portfolio" class="button primary">Explore Portfolio</a>
+          <a href="#contact" class="button ghost">Get in touch</a>
         </div>
       </div>
     </section>
 
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About MadWerx</h2>
+        <p>MadWerx represents and integrates leading technologies from specialized partners. We connect engineering excellence with commercialization, regulatory pathways, and deployment at scale.</p>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
     <section id="portfolio" class="section">
       <div class="container">
-        <h2>Portfolio of Companies</h2>
-        <div class="cards">
+        <div class="section-head">
+          <h2>Portfolio of Companies</h2>
+          <p class="muted">Access is curated. External sites require the password <code>integrity</code>.</p>
+        </div>
+
+        <div class="grid">
+          <!-- Carbon Trading -->
           <article class="card">
-            <img src="assets/logo-carbon.png" alt="Carbon Trading Platform logo" />
-            <h3>Carbon Trading Platform</h3>
-            <p>Blockchain‑based marketplace with transparent, immutable tracking of environmental assets.</p>
-            <a class="button tiny glow secure-link" href="https://example.com/carbon-trading" target="_blank">Visit Site</a>
+            <div class="card-head">
+              <img src="assets/logo-carbon.png" alt="Carbon Trading Platform" onerror="this.src='assets/placeholder-badge.svg';" />
+              <h3>Carbon Trading Platform</h3>
+            </div>
+            <p>Blockchain-based marketplace with transparent, immutable tracking of environmental assets and trade-offs; audit‑ready MRV and settlement.</p>
+            <a class="pill ext-link" href="https://example.com/carbon-trading" target="_blank" rel="noopener">Visit Site</a>
+          </article>
+
+          <!-- MagLev -->
+          <article class="card">
+            <div class="card-head">
+              <img src="assets/logo-maglev.png" alt="MagLev Power Pylon" onerror="this.src='assets/placeholder-badge.svg';" />
+              <h3>MagLev Power Pylon</h3>
+            </div>
+            <p>Electromagnetic & kinematics‑driven vertical‑axis turbine delivering continuous <strong>2.4 MW</strong> output; marine‑grade biopolymer composites.</p>
+            <a class="pill ext-link" href="https://example.com/maglev-pylon" target="_blank" rel="noopener">Visit Site</a>
+          </article>
+
+          <!-- Monetization -->
+          <article class="card">
+            <div class="card-head">
+              <img src="assets/logo-monetization.png" alt="Monetization Platform" onerror="this.src='assets/placeholder-badge.svg';" />
+              <h3>Monetization Platform</h3>
+            </div>
+            <p>Digital‑asset execution with advanced algorithms, risk controls, and real‑time analytics for compliant participation.</p>
+            <a class="pill ext-link" href="https://example.com/monetization" target="_blank" rel="noopener">Visit Site</a>
+          </article>
+
+          <!-- Atomic Resonance -->
+          <article class="card">
+            <div class="card-head">
+              <img src="assets/logo-atomic-resonance.png" alt="Atomic Resonance" onerror="this.src='assets/placeholder-badge.svg';" />
+              <h3>Atomic Resonance</h3>
+            </div>
+            <p>Next‑generation, energy‑efficient, and environmentally considerate mining technologies leveraging resonance‑based methods.</p>
+            <a class="pill ext-link" href="https://example.com/atomic-resonance" target="_blank" rel="noopener">Visit Site</a>
+          </article>
+
+          <!-- Graphene -->
+          <article class="card">
+            <div class="card-head">
+              <img src="assets/logo-graphene.png" alt="Graphene" onerror="this.src='assets/placeholder-badge.svg';" />
+              <h3>Graphene</h3>
+            </div>
+            <p>High‑precision, durable graphene production with tight process control for industrial‑grade performance.</p>
+            <a class="pill ext-link" href="https://example.com/graphene" target="_blank" rel="noopener">Visit Site</a>
+          </article>
+
+          <!-- Dynamic Resonance -->
+          <article class="card">
+            <div class="card-head">
+              <img src="assets/logo-dynamic-resonance.png" alt="Dynamic Resonance" onerror="this.src='assets/placeholder-badge.svg';" />
+              <h3>Dynamic Resonance</h3>
+            </div>
+            <p>Advanced biopolymer composites for marine systems, oil & gas transmission lines, and electromagnetic pipeline turbines.</p>
+            <a class="pill ext-link" href="https://example.com/dynamic-resonance" target="_blank" rel="noopener">Visit Site</a>
+          </article>
+
+          <!-- Eco & Off‑Grid -->
+          <article class="card">
+            <div class="card-head">
+              <img src="assets/logo-eco-offgrid.png" alt="Eco & Off‑Grid Infrastructure" onerror="this.src='assets/placeholder-badge.svg';" />
+              <h3>Eco &amp; Off‑Grid Infrastructure</h3>
+            </div>
+            <p>Non‑chemical water treatment, sustainable energy production & storage, biopolymer composites for construction.</p>
+            <a class="pill ext-link" href="https://example.com/eco-offgrid" target="_blank" rel="noopener">Visit Site</a>
           </article>
         </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <form id="contact-form" class="form">
+          <label><span>Name</span><input type="text" name="name" required placeholder="Your name" /></label>
+          <label><span>Email</span><input type="email" name="email" required placeholder="you@company.com" /></label>
+          <label class="full"><span>Message</span><textarea name="message" rows="5" required placeholder="How can we collaborate?"></textarea></label>
+          <button type="submit" class="button primary">Send</button>
+          <p id="form-status" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </section>
   </main>
@@ -57,7 +155,6 @@
     </div>
   </footer>
 
-  <div id="pointer-glow"></div>
   <script src="script.js"></script>
 </body>
 </html>
