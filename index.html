@@ -3,19 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MadWerx — World‑Leading Technologies for a Coherent Future</title>
-  <meta name="description" content="MadWerx represents a portfolio of companies delivering world‑leading technologies for a coherent future." />
+  <title>MadWerx — World-Leading Technologies for a Coherent Future</title>
+  <meta name="description" content="MadWerx represents a portfolio of companies delivering world-leading technologies for a coherent future." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- Elegant, investor-friendly sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- cosmic electric background -->
   <canvas id="energy-particles" aria-hidden="true"></canvas>
+  <!-- cursor glow -->
+  <div id="pointer-glow" aria-hidden="true"></div>
 
   <header class="site-header">
     <a href="#top" class="brand">
-      <img src="assets/logo-madwerx.png" alt="MadWerx logo" onerror="this.src='assets/placeholder-logo.svg';" />
+      <img class="brand-logo" src="assets/logo-madwerx.png" alt="MadWerx logo" onerror="this.src='assets/placeholder-logo.svg';" />
       <span>MadWerx</span>
     </a>
     <nav class="nav">
@@ -29,8 +33,9 @@
     <!-- Hero -->
     <section class="hero parallax">
       <div class="hero-inner">
-        <h1 class="title">World‑Leading Technologies<br><span class="accent">for a Coherent Future</span></h1>
-        <p class="subtitle">MadWerx is a steward and representative for a portfolio of companies delivering breakthrough, market‑ready solutions across energy, materials, finance, and infrastructure.</p>
+        <img class="hero-logo" src="assets/logo-madwerx.png" alt="MadWerx" onerror="this.src='assets/placeholder-logo.svg';">
+        <h1 class="title">World-Leading Technologies<br><span class="accent">for a Coherent Future</span></h1>
+        <p class="subtitle">MadWerx represents a portfolio of companies delivering breakthrough, market-ready solutions across energy, materials, finance, and infrastructure.</p>
         <div class="cta">
           <a href="#portfolio" class="button glow">Explore Portfolio</a>
           <a href="#contact" class="button outline">Get in Touch</a>
@@ -42,7 +47,7 @@
     <section id="about" class="section">
       <div class="container">
         <h2>About MadWerx</h2>
-        <p>MadWerx is a company that represents and integrates leading technologies from specialized partners. We connect engineering excellence with commercialization, regulatory pathways, and deployment at scale. Our focus areas include clean energy, advanced materials, financial infrastructure, and resilient off‑grid systems.</p>
+        <p>MadWerx represents and integrates leading technologies from specialized partners. We connect engineering excellence with commercialization, regulatory pathways, and deployment at scale. Focus areas include clean energy, advanced materials, financial infrastructure, and resilient off-grid systems.</p>
       </div>
     </section>
 
@@ -52,60 +57,53 @@
         <h2>Portfolio of Companies</h2>
 
         <div class="cards">
-          <!-- 1 Carbon Trading Platform -->
           <article class="card">
             <img src="assets/logo-carbon.png" alt="Carbon Trading Platform logo" onerror="this.src='assets/placeholder-badge.svg';" />
             <h3>Carbon Trading Platform</h3>
-            <p>Blockchain‑based marketplace with transparent, immutable tracking of environmental assets and trade‑offs, enabling audit‑ready MRV and settlement.</p>
-            <a class="button tiny glow" href="https://example.com/carbon-trading" target="_blank" rel="noopener">Visit Site</a>
+            <p>Blockchain-based marketplace with transparent, immutable tracking of environmental assets and trade-offs, enabling audit-ready MRV and settlement.</p>
+            <a class="button tiny glow ext-link" href="https://example.com/carbon-trading" target="_blank" rel="noopener">Visit Site</a>
           </article>
 
-          <!-- 2 MagLev Power Pylon -->
           <article class="card">
             <img src="assets/logo-maglev.png" alt="MagLev Power Pylon logo" onerror="this.src='assets/placeholder-badge.svg';" />
             <h3>MagLev Power Pylon</h3>
-            <p>Electromagnetic & kinematics‑driven vertical‑axis turbine delivering continuous <strong>2.4&nbsp;MW</strong> output under challenging conditions. Bio‑polymer composite with >40 years of proven performance in military and marine applications.</p>
-            <a class="button tiny glow" href="https://example.com/maglev-pylon" target="_blank" rel="noopener">Visit Site</a>
+            <p>Electromagnetic & kinematics-driven vertical-axis turbine delivering continuous <strong>2.4&nbsp;MW</strong> output under challenging conditions. Biopolymer composite with &gt;40 years of proven performance in military and marine applications.</p>
+            <a class="button tiny glow ext-link" href="https://example.com/maglev-pylon" target="_blank" rel="noopener">Visit Site</a>
           </article>
 
-          <!-- 3 Monetization Platform -->
           <article class="card">
             <img src="assets/logo-monetization.png" alt="Monetization Platform logo" onerror="this.src='assets/placeholder-badge.svg';" />
             <h3>Monetization Platform</h3>
-            <p>Digital‑asset trading with advanced execution algorithms, risk controls, and real‑time analytics for compliant market participation.</p>
-            <a class="button tiny glow" href="https://example.com/monetization" target="_blank" rel="noopener">Visit Site</a>
+            <p>Digital-asset trading with advanced execution algorithms, risk controls, and real-time analytics for compliant market participation.</p>
+            <a class="button tiny glow ext-link" href="https://example.com/monetization" target="_blank" rel="noopener">Visit Site</a>
           </article>
 
-          <!-- 4 Atomic Resonance -->
           <article class="card">
             <img src="assets/logo-atomic-resonance.png" alt="Atomic Resonance logo" onerror="this.src='assets/placeholder-badge.svg';" />
             <h3>Atomic Resonance</h3>
-            <p>Next‑generation, energy‑efficient, and environmentally friendly mining technologies leveraging resonance‑based methods.</p>
-            <a class="button tiny glow" href="https://example.com/atomic-resonance" target="_blank" rel="noopener">Visit Site</a>
+            <p>Next-generation, energy-efficient, and environmentally friendly mining technologies leveraging resonance-based methods.</p>
+            <a class="button tiny glow ext-link" href="https://example.com/atomic-resonance" target="_blank" rel="noopener">Visit Site</a>
           </article>
 
-          <!-- 5 Graphene -->
           <article class="card">
             <img src="assets/logo-graphene.png" alt="Graphene logo" onerror="this.src='assets/placeholder-badge.svg';" />
             <h3>Graphene</h3>
-            <p>High‑precision, durable graphene production with tight process control for industrial‑grade performance.</p>
-            <a class="button tiny glow" href="https://example.com/graphene" target="_blank" rel="noopener">Visit Site</a>
+            <p>High-precision, durable graphene production with tight process control for industrial-grade performance.</p>
+            <a class="button tiny glow ext-link" href="https://example.com/graphene" target="_blank" rel="noopener">Visit Site</a>
           </article>
 
-          <!-- 6 Dynamic Resonance -->
           <article class="card">
             <img src="assets/logo-dynamic-resonance.png" alt="Dynamic Resonance logo" onerror="this.src='assets/placeholder-badge.svg';" />
             <h3>Dynamic Resonance</h3>
             <p>Advanced biopolymer composites for marine systems, oil &amp; gas transmission lines, and electromagnetic pipeline turbines.</p>
-            <a class="button tiny glow" href="https://example.com/dynamic-resonance" target="_blank" rel="noopener">Visit Site</a>
+            <a class="button tiny glow ext-link" href="https://example.com/dynamic-resonance" target="_blank" rel="noopener">Visit Site</a>
           </article>
 
-          <!-- 7 Eco & Off‑Grid Infrastructure -->
           <article class="card">
-            <img src="assets/logo-eco-offgrid.png" alt="Eco & Off‑Grid Infrastructure logo" onerror="this.src='assets/placeholder-badge.svg';" />
-            <h3>Eco &amp; Off‑Grid Infrastructure</h3>
-            <p>Non‑chemical water treatment for drinking and recycling, sustainable energy production &amp; storage, and biopolymer composites for construction.</p>
-            <a class="button tiny glow" href="https://example.com/eco-offgrid" target="_blank" rel="noopener">Visit Site</a>
+            <img src="assets/logo-eco-offgrid.png" alt="Eco & Off-Grid Infrastructure logo" onerror="this.src='assets/placeholder-badge.svg';" />
+            <h3>Eco &amp; Off-Grid Infrastructure</h3>
+            <p>Non-chemical water treatment for drinking and recycling, sustainable energy production &amp; storage, and biopolymer composites for construction.</p>
+            <a class="button tiny glow ext-link" href="https://example.com/eco-offgrid" target="_blank" rel="noopener">Visit Site</a>
           </article>
         </div>
 
